@@ -14,7 +14,15 @@ https://www.youtube.com/watch?v=hmkF77F9TLw
 - To check => `env | grep VIRTUAL`
 
 # Database schema
-- User
+- auth (database)
+- user (table) 
+
+# Create database and tables 
+- `mysql -u root < init.sql`
+
+# Drop user and database
+- `mysql -u root -e 'drop user auth_user@localhost;'`
+- `mysql -u root -e 'drop database auth;'`
 
 # Error -  Can`t connect to local MySQL server through socket 
 - Solution: Kill the mysql and mysqld processes

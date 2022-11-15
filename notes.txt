@@ -1,0 +1,22 @@
+JWT
+    > JWT token
+        > All three are Base-64 encoded
+            > Header
+            > Payload (claims)
+                > Pieces of information of the user like Bearer token
+            > Verify signature
+
+    > Signing algorithms
+        > RS256 (Asymmetric algorithm)
+        > HS256 (Symmetric algorithm)
+
+CreateJWT 
+    > username -> username
+    > exp -> expiration of the jwt token (24 hours)
+    > iat -> token issued at, date and time
+    > admin -> authz (boolean: True if user is an admin, False if user is not an admin)
+
+host='0.0.0.0'
+    > Will listen to all public computers
+    > In our case, our server will be docker container
+    > And our application will be running within that container

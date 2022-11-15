@@ -5,7 +5,7 @@ grant all privileges on auth.* to 'auth_user'@'localhost';
 use auth;
 create table user (
     id int not null auto_increment primary key,
-    email varchar(255) not null,
+    email varchar(255) not null unique,
     password varchar(255) not null
 );
 
