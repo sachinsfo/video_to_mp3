@@ -24,6 +24,10 @@ https://www.youtube.com/watch?v=hmkF77F9TLw
 - `mysql -u root -e 'drop user auth_user@localhost;'`
 - `mysql -u root -e 'drop database auth;'`
 
+# Create requirements.txt
+- `pip3 freeze > requirements.txt`
+
+
 # Error -  Can`t connect to local MySQL server through socket 
 - Solution: Kill the mysql and mysqld processes
 - Run `brew services start mysql` to start mysql

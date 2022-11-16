@@ -24,3 +24,21 @@ host='0.0.0.0'
 HTTP authentication schemes
     > https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#authentication_schemes
     > In our case, we use Bearer token
+
+Docker
+    Create a 'Dockerfile' to run our build
+        > Use command `docker build .` to build it
+    Building docker image
+        > docker tag <sha256_from_the_docker_build> <your_docker_username>/auth:latest
+    See list of docker images
+        > docker image ls
+    Push to docker repo
+        > example: docker push <registry_path>
+        > docker push <your_docker_username>/auth:latest
+    Pull from docker repo
+        > example: docker pull <registry_path>
+        > docker pull <your_docker_username>/auth:latest
+
+Kubernetes
+    > After creating all the manifests files, 
+    > Run `kubectl apply -f ./` to apply all files
