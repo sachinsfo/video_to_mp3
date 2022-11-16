@@ -20,3 +20,7 @@ host='0.0.0.0'
     > Will listen to all public computers
     > In our case, our server will be docker container
     > And our application will be running within that container
+
+HTTP authentication schemes
+    > https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#authentication_schemes
+    > In our case, we use Bearer token

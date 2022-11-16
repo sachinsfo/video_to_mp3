@@ -47,6 +47,25 @@ def createJWT(username, secret, authz):
         secret,
         algorithm='HS256'
     )
+
+@srvr.route('/validate', methods=["POST"])
+def validate():
+    encoded_jwt = request.headers['Authorization']
+
+    if not encoded_jwt:
+        return "Missing credentials!", 401
+    
+    # encoded_jwt is of the form "Bearer token"
+    # In prod, we have to check for the word Bearer, but here we are skipping it
+    bearer, token = encoded_jwt.split(' ')
+    try:
+        decoded = jwt.decode(
+            token, os.environ.get('JWT_SECRET'), algorithms=['HS256']
+        )
+    except:
+        return 'Not authorized!', 403
+    
+    return decoded, 200
         
 if __name__ == '__main__':
     srvr.run(host='0.0.0.0', port=5000)
