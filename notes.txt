@@ -26,19 +26,44 @@ HTTP authentication schemes
     > In our case, we use Bearer token
 
 Docker
-    Create a 'Dockerfile' to run our build
+    > Create a 'Dockerfile' to run our build
         > Use command `docker build .` to build it
-    Building docker image
+    > Building docker image
         > docker tag <sha256_from_the_docker_build> <your_docker_username>/auth:latest
-    See list of docker images
+    > See list of docker images
         > docker image ls
-    Push to docker repo
+    > Push to docker repo
         > example: docker push <registry_path>
         > docker push <your_docker_username>/auth:latest
-    Pull from docker repo
+    > Pull from docker repo
         > example: docker pull <registry_path>
         > docker pull <your_docker_username>/auth:latest
 
 Kubernetes
     > After creating all the manifests files, 
     > Run `kubectl apply -f ./` to apply all files
+    > Kubernetes API Reference - https://kubernetes.io/docs/reference/kubernetes-api/
+
+Python Libraries
+    > jwt -> To create JWT tokens
+    > flask_mysqldb -> To communicate with mysql
+    > pymongo -> To interface with MongoDB
+    > gridfs -> To store large files in MongoDB
+        > https://www.mongodb.com/docs/manual/core/gridfs/
+    > pika -> To communicate with RabbitMQ
+
+Interservice Communication
+    > Synchronous Communication
+        > Client waiting on the server until the videos are processed on the server side
+    > Asynchronous Communication
+        > Videos are added to the queue to be processed at the convenience of the server
+
+Consistency
+    > Strong
+        > The data is synced with all nodes during the request
+    > Eventual
+        > The data is synced with all nodes eventually
+
+request vs requests
+    > Note the difference between these two terms in access.py file    
+    > 'reqeust' is a payload, whereas 'requests' is used to make post calls
