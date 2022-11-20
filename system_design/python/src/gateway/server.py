@@ -27,3 +27,23 @@ def login():
 @srvr.route('/upload', methods=['POST'])
 def upload():
     access, err = validate.token(request) 
+    access = json.loads(access)
+    if access["admin"]:
+        if len(request.files) != 1:
+            return "Exactly 1 file is required.", 400
+        
+        for _, f in request.files.items():
+            err = util.upload(f, fs, channel, access)
+            if err:
+                return err
+        
+        return "File upload successful!", 200
+    else:
+        return "User not an admin! Unauthorized!", 401
+            
+@srvr.route('/download', methods=['GET'])
+def download():
+    pass
+
+if __name__ == "__main__":
+    srvr.run(host="0.0.0.0", port=8080)

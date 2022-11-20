@@ -62,10 +62,10 @@ def validate():
         decoded = jwt.decode(
             token, os.environ.get('JWT_SECRET'), algorithms=['HS256']
         )
+        return decoded, 200
     except:
         return 'Not authorized!', 403
     
-    return decoded, 200
         
 if __name__ == '__main__':
     srvr.run(host='0.0.0.0', port=5000)
